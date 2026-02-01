@@ -1,0 +1,136 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mamba Clothing</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f4f4;
+    }
+    header {
+      background: #111;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .container {
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .products {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .card .info {
+      padding: 15px;
+    }
+    select {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+    .card button {
+      width: 100%;
+      padding: 10px;
+      background: #000;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .card button:hover {
+      background: #444;
+    }
+    .payment {
+      background: #fff;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    footer {
+      text-align: center;
+      padding: 15px;
+      background: #111;
+      color: #fff;
+      margin-top: 30px;
+    }
+  </style>
+</head>
+<body>  <header>
+    <h1>Mamba Clothing</h1>
+    <p>Order your custom outfits easily</p>
+  </header>  <div class="container">
+    <h2>Available Designs</h2><div class="products">
+  <div class="card">
+    <img src="https://via.placeholder.com/400x500" alt="Street Hoodie" />
+    <div class="info">
+      <h3>Street Hoodie</h3>
+      <p>Price: E350</p>
+      <select id="size-hoodie">
+        <option value="">Select Size</option>
+        <option value="S">Small</option>
+        <option value="M">Medium</option>
+        <option value="L">Large</option>
+        <option value="XL">Extra Large</option>
+      </select>
+      <button onclick="order('Street Hoodie','size-hoodie')">Order Now</button>
+    </div>
+  </div>
+
+  <div class="card">
+    <img src="https://via.placeholder.com/400x500" alt="Custom T-Shirt" />
+    <div class="info">
+      <h3>Custom T-Shirt</h3>
+      <p>Price: E200</p>
+      <select id="size-shirt">
+        <option value="">Select Size</option>
+        <option value="S">Small</option>
+        <option value="M">Medium</option>
+        <option value="L">Large</option>
+        <option value="XL">Extra Large</option>
+      </select>
+      <button onclick="order('Custom T-Shirt','size-shirt')">Order Now</button>
+    </div>
+  </div>
+</div>
+
+<div class="payment">
+  <h2>Payment Method</h2>
+  <p>After clicking "Order Now", you will be redirected to WhatsApp.</p>
+  <p>Payment is made via:</p>
+  <ul>
+    <li>Mobile Money</li>
+    <li>Cash on Delivery (if arranged)</li>
+  </ul>
+  <p>Payment details will be shared with you on WhatsApp after confirming your order.</p>
+</div>
+
+  </div>  <footer>
+    <p>© 2026 Mamba Clothing | Orders via WhatsApp</p>
+  </footer>  <script>
+    function order(product, sizeId) {
+      const size = document.getElementById(sizeId).value;
+      if (!size) return alert('Please select a size');
+      const phone = '26876468246';
+      const message = `Hello, I want to order: ${product}. Size: ${size}. Please send payment details.`;
+      const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+      window.open(url, '_blank');
+    }
+  </script></body>
+  </html>
